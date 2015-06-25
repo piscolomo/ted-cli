@@ -12,13 +12,10 @@ command :key do |c|
   c.syntax = "ted-cli key YOUR-API-KEY"
   c.description = "Set up your API key"
   c.action do |args, options|
-    unless args[0]
-      puts `ted-cli --help`
+    if !args[0]
+      puts `ted-cli key --help`
     else
-      puts "you are defining as key the next string:"
-      puts args[0]
       TedCli.api_key = args[0]
-      #KeyClass.instance.api_key = args[0]
     end
   end
 end
@@ -27,8 +24,5 @@ command :talk do |c|
   c.syntax = "ted-cli talk"
   c.description = "Search a talk"
   c.action do |args, options|
-    puts "your configured key is:"
-    puts TedCli.api_key
-    #puts KeyClass.instance.api_key
   end
 end
