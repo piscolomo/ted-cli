@@ -10,7 +10,7 @@ program :help, 'Version', "#{TedCli::VERSION}"
 
 command :key do |c|
   c.syntax = "ted-cli key YOUR-API-KEY"
-  c.description = "Set up your API key"
+  c.description = "Set up your API Key"
   c.action do |args, options|
     safe_run :key, args do
       TedCli.api_key = args[0]

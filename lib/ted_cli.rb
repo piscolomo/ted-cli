@@ -6,13 +6,14 @@ require "ted-cli/talk"
 
 module TedCli
   def self.api_key=(key)
-    y = YAML::load_file('conf/conf.yml')
-    y['content']['apikey'] = key
-    File.open('conf/conf.yml', 'w') {|f| f.write y.to_yaml }
+    data = {"apikey" => key}
+    File.open("conf.yml", "w+") {|f| f.write(data.to_yaml) }
   end
 
   def self.api_key
-    y = YAML::load_file('conf/conf.yml')
-    y['content']['apikey']
+    y = YAML::load_file('conf.yml')
+    y['apikey']
+  rescue
+    false
   end
 end
