@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'commander/import'
 require_relative '../lib/ted_cli'
 

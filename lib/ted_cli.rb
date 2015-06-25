@@ -1,3 +1,6 @@
 require 'httparty'
 
-require_relative "ted-cli/version"
+require "ted-cli/version"
+
+module TedCli
+end
