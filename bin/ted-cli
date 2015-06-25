@@ -12,17 +12,30 @@ command :key do |c|
   c.syntax = "ted-cli key YOUR-API-KEY"
   c.description = "Set up your API key"
   c.action do |args, options|
-    if !args[0]
-      puts `ted-cli key --help`
-    else
+    safe_run :key, args do
       TedCli.api_key = args[0]
     end
   end
 end
 
 command :talk do |c|
-  c.syntax = "ted-cli talk"
+  c.syntax = "ted-cli talk KEYWORD"
   c.description = "Search a talk"
   c.action do |args, options|
+    if TedCli.api_key
+      safe_run :talk, args do
+        puts "searching talk with keyword #{args[0]}"
+      end
+    else
+      puts "API Key is not configured. Add it with 'ted-cli key YOUR-API-KEY'. You can get an API Key from http://developer.ted.com/member/register"
+    end
+  end
+end
+
+def safe_run(method_name, args)
+  if !args[0]
+    puts `ted-cli #{method_name} --help`
+  else
+    yield
   end
 end
