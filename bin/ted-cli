@@ -1,0 +1,8 @@
+require 'commander/import'
+require_relative '../lib/ted_cli'
+
+program :name, "ted-cli"
+program :version, TedCli::VERSION
+program :description, "Command Line Interface gem for explore and watch Ted talks"
+program :help, 'Author', 'Julio Lopez Montalvo <https://github.com/theblasfem>'
+program :help, 'Version', "#{TedCli::VERSION}"
