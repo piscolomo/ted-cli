@@ -1,3 +1,3 @@
-module TedCli
-  VERSION = "0.0.1"
-end
+require 'httparty'
+
+require_relative "ted-cli/version"

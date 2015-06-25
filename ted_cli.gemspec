@@ -1,4 +1,4 @@
-require "./lib/ted_cli"
+require_relative 'lib/ted-cli/version'
 
 Gem::Specification.new do |s|
   s.name              = "ted-cli"
