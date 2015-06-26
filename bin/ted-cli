@@ -14,6 +14,7 @@ command :key do |c|
   c.action do |args, options|
     safe_run :key, args do
       TedCli.api_key = args[0]
+      puts "Your API Key was succesfully configured, have fun!"
     end
   end
 end

@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "bundler", "~> 1.7.4"
   s.add_development_dependency "rake", "~> 10.0"
   s.add_development_dependency 'jazz_fingers', '1.0.0'
+  s.add_development_dependency 'dotenv'
 end
