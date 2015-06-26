@@ -1,17 +1,3 @@
-class ErrorObject
-  def initialize(message)
-    @message = message
-  end
-
-  def valid?
-    false
-  end
-
-  def to_s
-    "Error #{@message}"
-  end
-end
-
 class CompositeTalk
   include HTTParty
 
@@ -34,16 +20,16 @@ class CompositeTalk
   def self.find(keyword)
     response = get("#{TedCli::API_PATH}/talks.json?api-key=#{TedCli.api_key}&name=*#{keyword}*")
     if response.success?
-      return ErrorObject.new("Not Found") if response["counts"]["total"] == 0
+      return ErrorObject.new("No talks were found. Try with another word") if response["counts"]["total"] == 0
       composite = self.new
       response["talks"].each do |t|
         composite << {id: t["talk"]["id"], name: t["talk"]["name"]}
       end
     else
-      ErrorObject.new("We're not sure...")
+      ErrorObject.new("Sorry, an unexpected error have happened, try again.")
     end
     composite
   rescue JSON::ParserError => e
-    ErrorObject.new("Your api key is wrong!")
+    ErrorObject.new("Your api key is wrong! Set it correctly with ted-cli key YOUR-API-KEY")
   end
 end

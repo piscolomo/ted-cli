@@ -3,6 +3,7 @@ require 'yaml'
 
 require "ted-cli/version"
 require "ted-cli/composite_talk"
+require "ted-cli/error_object"
 require "ted-cli/talk"
 
 module TedCli
