@@ -18,6 +18,8 @@ Still in development...
 
     //Display info of talk
 
+    //Actions: Download or Open it
+
 ## Search by Speaker
 
 ## Surprise me

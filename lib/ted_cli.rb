@@ -2,9 +2,11 @@ require 'httparty'
 require 'yaml'
 
 require "ted-cli/version"
+require "ted-cli/composite_talk"
 require "ted-cli/talk"
 
 module TedCli
+  API_PATH = "http://api.ted.com/v1"
   GEM_PATH = Gem::Specification.find_by_name("ted-cli").gem_dir
   
   def self.api_key=(key)

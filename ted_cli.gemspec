@@ -22,4 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'commander', '4.3.4'
   s.add_runtime_dependency "httparty", "~> 0.13"
   s.add_runtime_dependency 'paint', '1.0.0'
+  s.add_development_dependency "bundler", "~> 1.7.4"
+  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency 'jazz_fingers', '1.0.0'
 end

@@ -25,6 +25,12 @@ command :talk do |c|
     if TedCli.api_key
       safe_run :talk, args do
         puts "searching talk with keyword #{args[0]}"
+        talks = CompositeTalk.find args[0]
+        if talks.valid?
+          puts talks.list
+        else
+          puts "No talks were found."
+        end
       end
     else
       puts "API Key is not configured. Add it with 'ted-cli key YOUR-API-KEY'. You can get an API Key from http://developer.ted.com/member/register"

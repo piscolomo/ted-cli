@@ -1,2 +1,3 @@
 class Talk
+  
 end
